@@ -1,8 +1,11 @@
-# LC1
-# Problem: https://leetcode.com/problems/LC1/
-
-
 class Solution:
-    def solve(self):
-        pass
+    def twoSum(self, nums, target):
+        seen = {}
 
+        for i, num in enumerate(nums):
+            complement = target - num
+
+            if complement in seen:
+                return [seen[complement], i]
+
+            seen[num] = i
