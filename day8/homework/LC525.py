@@ -1,8 +1,18 @@
-# LC525
-# Problem: https://leetcode.com/problems/LC525/
-
-
 class Solution:
-    def solve(self):
-        pass
+    def findMaxLength(self, nums):
+        first = {0: -1}
+        prefix = 0
+        longest = 0
 
+        for i, num in enumerate(nums):
+            if num == 0:
+                prefix -= 1
+            else:
+                prefix += 1
+
+            if prefix in first:
+                longest = max(longest, i - first[prefix])
+            else:
+                first[prefix] = i
+
+        return longest
