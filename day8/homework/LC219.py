@@ -1,8 +1,11 @@
-# LC219
-# Problem: https://leetcode.com/problems/LC219/
-
-
 class Solution:
-    def solve(self):
-        pass
+    def containsNearbyDuplicate(self, nums, k):
+        seen = {}
 
+        for i, num in enumerate(nums):
+            if num in seen and i - seen[num] <= k:
+                return True
+
+            seen[num] = i
+
+        return False
