@@ -1,10 +1,20 @@
 class Solution:
-    def containsDuplicate(self, nums):
-        seen = set()
+    def isAnagram(self, s, t):
+        if len(s) != len(t):
+            return False
 
-        for num in nums:
-            if num in seen:
-                return True
-            seen.add(num)
+        count = {}
 
-        return False
+        for char in s:
+            count[char] = count.get(char, 0) + 1
+
+        for char in t:
+            if char not in count:
+                return False
+
+            count[char] -= 1
+
+            if count[char] < 0:
+                return False
+
+        return True
