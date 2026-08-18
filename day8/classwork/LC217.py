@@ -1,8 +1,10 @@
-# LC217
-# Problem: https://leetcode.com/problems/LC217/
-
-
 class Solution:
-    def solve(self):
-        pass
+    def containsDuplicate(self, nums):
+        seen = set()
 
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+
+        return False
